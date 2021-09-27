@@ -7,6 +7,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var table = TableView(frame: .zero, style: .insetGrouped)
     //print("oh")
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(table)
