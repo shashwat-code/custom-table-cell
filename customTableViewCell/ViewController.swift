@@ -5,6 +5,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var data = [["row 1"],["row 2"],["row 3"],["row 4"],["row 5"],["row 6"],["row 7"],["row 8"],["row 9"],["row 10"],["row 11"]]
     var sectionTitle = ["section 1","section 2","section 3","section 4","section 5","section 6","section 7","section 8","section 9","section 10","section 11"]
     var table = TableView(frame: .zero, style: .insetGrouped)
+    //print("oh")
     
     override func viewDidLoad() {
         super.viewDidLoad()
