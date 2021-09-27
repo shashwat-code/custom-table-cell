@@ -4,7 +4,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var count = 0
     var data = [["row 1"],["row 2"],["row 3"],["row 4"],["row 5"],["row 6"],["row 7"],["row 8"],["row 9"],["row 10"],["row 11"]]
     var sectionTitle = ["section 1","section 2","section 3","section 4","section 5","section 6","section 7","section 8","section 9","section 10","section 11"]
-    var table = TableView()
+    var table = TableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         count = count + 1
         print("tapped: \(count)")
     }
-
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "delete") { _, _, _ in
+            print("tapped delete ")
+        }
+        let edit =  UIContextualAction(style: .normal , title: "edit") { _, _, _ in
+            print("tapped edit ")
+        }
+        edit.backgroundColor = .systemBlue
+        let swipe  = UISwipeActionsConfiguration(actions: [delete,edit])
+        return swipe
+    }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .normal  , title: "delete", handler: { _, _, _ in
+            self.data.remove(at: 5)
+            self.table.deleteRows(at: [indexPath], with: .fade)
+        })])
+        return delete
+    }
 }
 
 extension ViewController: PlaceholderDelegate {
