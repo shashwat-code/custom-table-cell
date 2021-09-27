@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_customTableViewCell_customTableViewCellUITests : NSObject
+@end
+@implementation PodsDummy_Pods_customTableViewCell_customTableViewCellUITests
+@end
